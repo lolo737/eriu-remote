@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-latest
     defaults:
       run:
-        working-directory: host-agent
+        working-directory: eriu-remote-build/host-agent
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
