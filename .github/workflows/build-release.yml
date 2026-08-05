@@ -18,8 +18,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Setup Visual Studio build tools
+        uses: microsoft/setup-msbuild@v2
+      - name: Install node-gyp globally
+        run: npm install -g node-gyp
       - name: Install dependencies
-        run: npm install
+        run: npm install --build-from-source
       - name: Build Windows
         run: npm run build:win
         env:
