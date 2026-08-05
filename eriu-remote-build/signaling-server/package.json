@@ -1,0 +1,12 @@
+{
+  "name": "ra-signaling-server",
+  "version": "1.0.0",
+  "description": "Signaling/relay server for the custom remote access tool",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.16.0"
+  }
+}
