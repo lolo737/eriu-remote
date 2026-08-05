@@ -1,11 +1,9 @@
 name: Build & Release
-
 on:
   push:
     tags:
       - 'v*.*.*'
   workflow_dispatch:
-
 jobs:
   build-windows:
     name: Windows x64
@@ -31,14 +29,13 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: windows-x64
-          path: host-agent/dist/*.exe
-
+          path: eriu-remote-build/host-agent/dist/*.exe
   build-macos:
     name: macOS Universal
     runs-on: macos-13
     defaults:
       run:
-        working-directory: host-agent
+        working-directory: eriu-remote-build/host-agent
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -53,8 +50,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: macos-universal
-          path: host-agent/dist/*.dmg
-
+          path: eriu-remote-build/host-agent/dist/*.dmg
   release:
     name: Create Release
     needs: [build-windows, build-macos]
